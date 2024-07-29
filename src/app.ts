@@ -1,7 +1,8 @@
 import express, { Request, Response, NextFunction } from 'express';
 import cors, { CorsOptions } from 'cors';
-import routerLogin from '../router/login'; 
-import routerSiginUp from '../router/siginup'; 
+import routerLogin from '../router/login';
+import routerSiginUp from '../router/siginup';
+import routerPrime from '../router/prime';
 
 // Cria uma instância do aplicativo Express
 const app = express();
@@ -40,6 +41,7 @@ app.use(cors(corsOptions));
  */
 app.use('/login', routerLogin); // Adiciona um prefixo para as rotas de login
 app.use('/sigin', routerSiginUp); // Adiciona um prefixo para as rotas de signup
+app.use('/prime', routerPrime);
 
 /**
  * Middleware de tratamento de erros.

@@ -136,3 +136,8 @@ export interface SendSuccess {
      */
     msg: string;
 }
+
+export interface iObjectToken {
+    email?: string;
+    password?: string;
+}
