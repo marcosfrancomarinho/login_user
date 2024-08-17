@@ -46,7 +46,7 @@ export namespace User {
             const response: SendSuccess = await query.loginUser(datas.email, datas.password);
 
             // Define o token JWT no cabeçalho da resposta.
-            res.setHeader('authorization-token', token);
+            res.setHeader('Authorization-Token', token);
 
             // Responde com o resultado do login e o token JWT.
             res.status(200).send({ response, token });
@@ -96,7 +96,7 @@ export namespace User {
                 );
 
                 // Define o token JWT no cabeçalho da resposta.
-                res.setHeader('authorization-token', token);
+                res.setHeader('Authorization-Token', token);
 
                 // Responde com o resultado do registro e o token JWT.
                 res.status(200).send({ response, token });
@@ -109,7 +109,7 @@ export namespace User {
 
     export function verifyToken(req: Request, res: Response, next: NextFunction): void {
         try {
-            const token = req.headers['authorization-token'] as string | undefined;
+            const token = req.headers['Authorization-Token'] as string | undefined;
             if (!token) {
                 throw new Error('Token não foi informado');
             }
