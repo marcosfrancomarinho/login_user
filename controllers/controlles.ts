@@ -109,7 +109,8 @@ export namespace User {
 
     export function verifyToken(req: Request, res: Response, next: NextFunction): void {
         try {
-            const token = req.body.token
+            const token:string | null = req.body.token
+            console.log(token)
             if (!token) {
                 throw new Error('Token não foi informado');
             }
