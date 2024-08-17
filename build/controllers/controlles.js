@@ -48,7 +48,7 @@ var User;
     User.signUp = signUp;
     function verifyToken(req, res, next) {
         try {
-            const token = req.headers['Authorization-Token'];
+            const token = req.headers['authorization-token'];
             console.log(token);
             if (!token) {
                 throw new Error('Token não foi informado');

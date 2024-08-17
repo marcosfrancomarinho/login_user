@@ -109,7 +109,7 @@ export namespace User {
 
     export function verifyToken(req: Request, res: Response, next: NextFunction): void {
         try {
-            const token = req.headers['Authorization-Token'] as string;
+            const token = req.headers['authorization-token'] as string;
             console.log(token)
             if (!token) {
                 throw new Error('Token não foi informado');
