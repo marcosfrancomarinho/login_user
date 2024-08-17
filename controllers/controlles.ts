@@ -39,7 +39,7 @@ export namespace User {
             const token: string = jwt.sign(
                 payload,
                 process.env.SECRET_TOKEN as string,
-                { expiresIn:60 }
+                { expiresIn:'1h' }
             );
 
             // Tenta fazer login do usuário e obter o resultado.
