@@ -36,9 +36,9 @@ export namespace CheckDatas {
      */
     export function validateSignUp(datas: iBody): ValidationResult {
         const schema = Joi.object({
-            name: Joi.string().required().empty().trim().min(3),
-            email: Joi.string().required().email().empty().trim().min(8),
-            password: Joi.string().required().empty().trim().min(8)
+            name: Joi.string().trim().empty().min(3),
+            email: Joi.string().email().trim().empty().min(8),
+            password: Joi.string().trim().empty().min(8)
         });
         return schema.validate(datas);
     }
