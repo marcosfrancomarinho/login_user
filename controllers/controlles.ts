@@ -39,7 +39,7 @@ export namespace User {
             const token: string = jwt.sign(
                 payload,
                 process.env.SECRET_TOKEN as string,
-                { expiresIn:'1h' }
+                { expiresIn: '1h' }
             );
 
             // Tenta fazer login do usuário e obter o resultado.
@@ -109,7 +109,7 @@ export namespace User {
 
     export function verifyToken(req: Request, res: Response, next: NextFunction): void {
         try {
-            const token:string | null = req.body.token
+            const token = req.headers['Authorization-Token'] as string;
             console.log(token)
             if (!token) {
                 throw new Error('Token não foi informado');

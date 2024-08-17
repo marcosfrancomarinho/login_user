@@ -17,9 +17,9 @@ var User;
             if (error)
                 throw error;
             const payload = { email: datas.email };
-            const token = jsonwebtoken_1.default.sign(payload, process.env.SECRET_TOKEN, { expiresIn: 60 });
+            const token = jsonwebtoken_1.default.sign(payload, process.env.SECRET_TOKEN, { expiresIn: '1h' });
             const response = await query.loginUser(datas.email, datas.password);
-            res.setHeader('authorization-token', token);
+            res.setHeader('Authorization-Token', token);
             res.status(200).send({ response, token });
         }
         catch (error) {
@@ -37,7 +37,7 @@ var User;
                 const response = await query.insertDb(datas.name, datas.email, datas.password);
                 const payload = { email: datas.email };
                 const token = jsonwebtoken_1.default.sign(payload, process.env.SECRET_TOKEN, { expiresIn: '1h' });
-                res.setHeader('authorization-token', token);
+                res.setHeader('Authorization-Token', token);
                 res.status(200).send({ response, token });
             }
         }
@@ -48,7 +48,8 @@ var User;
     User.signUp = signUp;
     function verifyToken(req, res, next) {
         try {
-            const token = req.headers['authorization-token'];
+            const token = req.headers['Authorization-Token'];
+            console.log(token);
             if (!token) {
                 throw new Error('Token não foi informado');
             }

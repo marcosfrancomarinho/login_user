@@ -17,9 +17,9 @@ var CheckDatas;
     CheckDatas.validateLogin = validateLogin;
     function validateSignUp(datas) {
         const schema = joi_1.default.object({
-            name: joi_1.default.string().required().empty().trim().min(3),
-            email: joi_1.default.string().required().email().empty().trim().min(8),
-            password: joi_1.default.string().required().empty().trim().min(8)
+            name: joi_1.default.string().required().trim().empty().min(3),
+            email: joi_1.default.string().required().email().trim().empty().min(8),
+            password: joi_1.default.string().required().trim().empty().min(8)
         });
         return schema.validate(datas);
     }

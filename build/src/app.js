@@ -12,9 +12,9 @@ const app = (0, express_1.default)();
 const port = parseInt(process.env.PORT ?? '3000', 10);
 const corsOptions = {
     origin: '*',
-    methods: ['POST'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    exposedHeaders: ['authorization-token']
+    methods: ['POST', 'GET', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'authorization-token'],
+    exposedHeaders: ['Authorization-Token']
 };
 app.use(express_1.default.json());
 app.use((0, cors_1.default)(corsOptions));

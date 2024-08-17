@@ -21,7 +21,7 @@ const port: number = parseInt(process.env.PORT ?? '3000', 10);
  * @property {string[]} exposedHeaders - Cabeçalhos expostos que podem ser acessados na resposta. Inclui 'Authorization-Token'.
  */
 const corsOptions: CorsOptions = {
-    origin: '*', // ou 'http://localhost:3000'
+    origin: '*', 
     methods: ['POST', 'GET', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization', 'authorization-token'], // Adiciona 'authorization-token'
     exposedHeaders: ['Authorization-Token']
