@@ -24,7 +24,7 @@ const corsOptions: CorsOptions = {
     origin: '*',
     methods: ['POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    exposedHeaders: ['Authorization-Token']
+    exposedHeaders: ['authorization-token']
 };
 
 // Middleware para interpretar o corpo das requisições como JSON
