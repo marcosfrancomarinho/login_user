@@ -23,7 +23,7 @@ const port: number = parseInt(process.env.PORT ?? '3000', 10);
 const corsOptions: CorsOptions = {
     origin: '*',
     methods: ['POST'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'authorization-token'],
     exposedHeaders: ['authorization-token']
 };
 
