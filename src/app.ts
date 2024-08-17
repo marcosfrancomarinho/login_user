@@ -16,15 +16,15 @@ const port: number = parseInt(process.env.PORT ?? '3000', 10);
  * @type {CorsOptions}
  * @default
  * @property {string} origin - Define as origens permitidas. '*' permite todas as origens.
- * @property {string[]} methods - Métodos HTTP permitidos. Aqui está configurado para permitir apenas 'POST'.
- * @property {string[]} allowedHeaders - Cabeçalhos permitidos nas requisições. Inclui 'Content-Type' e 'Authorization'.
- * @property {string[]} exposedHeaders - Cabeçalhos expostos que podem ser acessados na resposta. Inclui 'authorization-token'.
+ * @property {string[]} methods - Métodos HTTP permitidos. Aqui está configurado para permitir POST, GET, PUT e DELETE.
+ * @property {string[]} allowedHeaders - Cabeçalhos permitidos nas requisições. Inclui 'Content-Type', 'Authorization' e 'authorization-token'.
+ * @property {string[]} exposedHeaders - Cabeçalhos expostos que podem ser acessados na resposta. Inclui 'Authorization-Token'.
  */
 const corsOptions: CorsOptions = {
     origin: '*', // ou 'http://localhost:3000'
     methods: ['POST', 'GET', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'], // Sem necessidade de 'authorization-token'
-    exposedHeaders: ['Authorization-Token'] // Se ainda precisar expor
+    allowedHeaders: ['Content-Type', 'Authorization', 'authorization-token'], // Adiciona 'authorization-token'
+    exposedHeaders: ['Authorization-Token']
 };
 
 // Middleware para interpretar o corpo das requisições como JSON
@@ -32,6 +32,7 @@ app.use(express.json());
 
 // Middleware para configurar as opções de CORS
 app.use(cors(corsOptions));
+
 /**
  * Configura as rotas do aplicativo.
  * @function
