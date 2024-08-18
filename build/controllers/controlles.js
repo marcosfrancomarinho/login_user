@@ -66,7 +66,10 @@ var User;
     }
     User.verifyToken = verifyToken;
     function prime(req, res) {
-        res.send('acesso privado');
+        res.status(200).json({
+            menu: ['inicio', 'novidades', 'local', 'contanto'],
+            message: 'seja bem vindo a nossa loja'
+        });
     }
     User.prime = prime;
 })(User || (exports.User = User = {}));

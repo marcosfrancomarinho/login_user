@@ -129,6 +129,9 @@ export namespace User {
         }
     }
     export function prime(req: Request, res: Response): void {
-        res.send('acesso privado');
+        res.status(200).json({
+            menu: ['inicio', 'novidades', 'local', 'contanto'],
+            message: 'seja bem vindo a nossa loja'
+        })
     }
 }
